@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#f5c842">
+  <meta name="description"
+    content="Split bills fast. No login, no drama. SplitTab is a simple, privacy-first expense splitter that works offline.">
+  <meta name="keywords"
+    content="split bill, expense splitter, bill calculator, tip calculator, split check, divide expenses">
+  <meta name="author" content="SplitTab">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kritishdhakal.com.np/SplitTab">
+  <meta property="og:title" content="SplitTab - Split Bills Fast">
+  <meta property="og:description"
+    content="Split bills fast. No login, no drama. Simple, privacy-first expense splitter.">
+  <meta property="og:image" content="https://kritishdhakal.com.np/SplitTab/icons/SplitTab.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://kritishdhakal.com.np/SplitTab">
+  <meta property="twitter:title" content="SplitTab - Split Bills Fast">
+  <meta property="twitter:description"
+    content="Split bills fast. No login, no drama. Simple, privacy-first expense splitter.">
+  <meta property="twitter:image" content="https://kritishdhakal.com.np/SplitTab/icons/SplitTab.png">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="mask-icon" href="icons/SplitTab.png" color="#f5c842">
+  <link rel="shortcut icon" href="icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#0d0d0d">
+  <meta name="msapplication-config" content="icons/browserconfig.xml">
+
+  <title>SplitTab - Split Bills Fast</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header class="app-header">
+      <div class="logo">
+        <svg viewBox="0 0 86 90" fill="none" class="logo-image" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0 20C0 15.286 0 12.9289 1.46447 11.4645C2.92893 10 5.28595 10 10 10H30C34.714 10 37.0711 10 38.5355 11.4645C40 12.9289 40 15.286 40 20V70C40 74.714 40 77.0711 38.5355 78.5355C37.0711 80 34.714 80 30 80H10C5.28595 80 2.92893 80 1.46447 78.5355C0 77.0711 0 74.714 0 70V20Z"
+            fill="currentColor" />
+          <path
+            d="M46 10H76C80.714 10 83.0711 10 84.5355 11.4645C86 12.9289 86 15.286 86 20V70C86 74.714 86 77.0711 84.5355 78.5355C83.0711 80 80.714 80 76 80H46V10Z"
+            fill="currentColor" />
+          <path
+            d="M44 1C44 0.447718 44.4477 0 45 0C45.5523 0 46 0.447715 46 1V89C46 89.5523 45.5523 90 45 90C44.4477 90 44 89.5523 44 89V1Z"
+            fill="currentColor" />
+        </svg>
+        <span>SplitTab</span>
+      </div>
+      <div class="step-dots" id="stepDots"></div>
+    </header>
+    <main id="main"></main>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

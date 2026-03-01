@@ -1,0 +1,25 @@
+{
+  "name": "SplitTab",
+  "short_name": "SplitTab",
+  "description": "Split bills fast. No login, no drama.",
+  "start_url": "/expense-splitter/",
+  "scope": "/expense-splitter/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#f5c842",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
