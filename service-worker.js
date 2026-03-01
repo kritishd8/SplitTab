@@ -1,10 +1,17 @@
 /* SplitTab Service Worker */
-const CACHE_NAME = 'splittab-v1';
+const CACHE_NAME = 'splittab-v2';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
-  './script.js',
+  './js/app.js',
+  './js/state.js',
+  './js/renderers.js',
+  './js/navigation.js',
+  './js/calculations.js',
+  './js/components.js',
+  './js/summary.js',
+  './js/utils.js',
   './manifest.json'
 ];
 
