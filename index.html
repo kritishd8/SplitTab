@@ -41,6 +41,7 @@
   <title>SplitTab - Split Bills Fast</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script type="module" src="js/app.js"></script>
 </head>
 
 <body>
@@ -64,7 +65,27 @@
     </header>
     <main id="main"></main>
   </div>
-  <script src="script.js"></script>
+  
+  <!-- PWA Install Prompt -->
+  <div id="pwa-install-prompt" class="pwa-install-prompt hidden">
+    <div class="pwa-prompt-content">
+      <div class="pwa-prompt-icon">
+        <svg viewBox="0 0 86 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 20C0 15.286 0 12.9289 1.46447 11.4645C2.92893 10 5.28595 10 10 10H30C34.714 10 37.0711 10 38.5355 11.4645C40 12.9289 40 15.286 40 20V70C40 74.714 40 77.0711 38.5355 78.5355C37.0711 80 34.714 80 30 80H10C5.28595 80 2.92893 80 1.46447 78.5355C0 77.0711 0 74.714 0 70V20Z" fill="currentColor" />
+          <path d="M46 10H76C80.714 10 83.0711 10 84.5355 11.4645C86 12.9289 86 15.286 86 20V70C86 74.714 86 77.0711 84.5355 78.5355C83.0711 80 80.714 80 76 80H46V10Z" fill="currentColor" />
+          <path d="M44 1C44 0.447718 44.4477 0 45 0C45.5523 0 46 0.447715 46 1V89C46 89.5523 45.5523 90 45 90C44.4477 90 44 89.5523 44 89V1Z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="pwa-prompt-text">
+        <h3>Install SplitTab</h3>
+        <p>Add to home screen for quick access</p>
+      </div>
+      <div class="pwa-prompt-actions">
+        <button id="pwa-install-btn" class="pwa-install-button">Install</button>
+        <button id="pwa-dismiss-btn" class="pwa-dismiss-button">Not now</button>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
