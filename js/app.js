@@ -51,6 +51,25 @@ function hideInstallPrompt() {
   if (prompt) {
     prompt.classList.add('hidden');
   }
+  
+  // Show download button in header after dismissal
+  showDownloadButton();
+}
+
+// Show download button in header
+function showDownloadButton() {
+  const downloadBtn = document.getElementById('pwa-download-btn');
+  if (downloadBtn && isMobile() && deferredPrompt) {
+    downloadBtn.classList.remove('hidden');
+  }
+}
+
+// Hide download button in header
+function hideDownloadButton() {
+  const downloadBtn = document.getElementById('pwa-download-btn');
+  if (downloadBtn) {
+    downloadBtn.classList.add('hidden');
+  }
 }
 
 // Install the PWA
@@ -62,6 +81,8 @@ async function installPWA() {
   
   if (outcome === 'accepted') {
     console.log('PWA installation accepted');
+    // Hide download button after successful installation
+    hideDownloadButton();
   } else {
     console.log('PWA installation dismissed');
   }
@@ -79,6 +100,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
   if (isMobile() && !pwaPromptShown && !localStorage.getItem('pwaPromptShown')) {
     // Small delay to ensure page is loaded
     setTimeout(showInstallPrompt, 1000);
+  } else if (isMobile() && localStorage.getItem('pwaPromptShown')) {
+    // User has previously dismissed, show download button
+    showDownloadButton();
   }
 });
 
@@ -88,6 +112,8 @@ document.addEventListener('click', (e) => {
     installPWA();
   } else if (e.target.id === 'pwa-dismiss-btn') {
     hideInstallPrompt();
+  } else if (e.target.id === 'pwa-download-btn' || e.target.closest('#pwa-download-btn')) {
+    installPWA();
   }
 });
 
@@ -97,6 +123,9 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     if (deferredPrompt && isMobile() && !pwaPromptShown && !localStorage.getItem('pwaPromptShown')) {
       showInstallPrompt();
+    } else if (deferredPrompt && isMobile() && localStorage.getItem('pwaPromptShown')) {
+      // User has previously dismissed, show download button
+      showDownloadButton();
     }
   }, 2000); // 2 second delay to let page load
 });

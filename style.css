@@ -1099,6 +1099,48 @@ hr {
   background: var(--surface2);
 }
 
+/* ── PWA DOWNLOAD BUTTON IN HEADER ── */
+.pwa-download-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.pwa-download-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.pwa-download-btn:hover {
+  color: var(--text);
+  background: var(--surface2);
+}
+
+.pwa-download-btn:hover svg {
+  transform: translateY(2px);
+}
+
+.pwa-download-btn.hidden {
+  display: none;
+}
+
+/* Header right section layout */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* Mobile optimizations */
 @media (max-width: 480px) {
   .pwa-install-prompt {
