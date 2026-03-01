@@ -16,7 +16,7 @@ export { render };
 // ── SERVICE WORKER REGISTRATION ──
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js')
+    navigator.serviceWorker.register('/service-worker.js')
       .catch(() => {}); // silent fail
   });
 }
@@ -107,7 +107,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   
-  // Only show prompt if never shown before and on mobile
+  // Show custom prompt on mobile if never shown before
   if (isMobile() && !localStorage.getItem('pwaPromptShown')) {
     setTimeout(showInstallPrompt, 1000);
   }
