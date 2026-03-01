@@ -286,6 +286,23 @@ label {
   transition: all 0.15s;
   letter-spacing: 0.3px;
   white-space: nowrap;
+  min-height: 48px; /* iOS touch target minimum */
+}
+
+/* Mobile button enhancements */
+@media (max-width: 768px) {
+  .btn {
+    font-size: 1rem;
+    padding: 16px 24px;
+    min-height: 52px;
+    border-radius: var(--radius);
+  }
+  
+  .btn-primary {
+    padding: 18px 28px;
+    min-height: 56px;
+    font-size: 1.1rem;
+  }
 }
 
 .btn-primary {
@@ -1070,6 +1087,7 @@ hr {
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  min-height: 44px; /* iOS touch target minimum */
 }
 
 .pwa-install-button:hover {
@@ -1089,14 +1107,32 @@ hr {
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  min-height: 40px; /* Touch friendly */
 }
 
 .pwa-dismiss-button:hover {
   color: var(--text);
   background: var(--surface2);
+}
+
+/* Mobile PWA button enhancements */
+@media (max-width: 768px) {
+  .pwa-install-button {
+    padding: 14px 20px;
+    font-size: 1rem;
+    min-height: 52px;
+    border-radius: var(--radius);
+  }
+  
+  .pwa-dismiss-button {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
 }
 
 /* ── PWA DOWNLOAD BUTTON IN HEADER ── */
