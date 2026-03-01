@@ -6,10 +6,17 @@
 // ── SERVICE WORKER REGISTRATION ──
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/expense-splitter/service-worker.js')
+    navigator.serviceWorker.register('./service-worker.js')
       .catch(() => {}); // silent fail
   });
 }
+
+// ── PWA INSTALL PROMPT ──
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  // Store the event for later use if needed
+  window.deferredPrompt = e;
+});
 
 // ── STATE ──
 const DEFAULT_STATE = {

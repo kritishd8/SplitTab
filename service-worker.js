@@ -1,11 +1,11 @@
 /* SplitTab Service Worker */
 const CACHE_NAME = 'splittab-v1';
 const ASSETS = [
-  '/expense-splitter/',
-  '/expense-splitter/index.html',
-  '/expense-splitter/style.css',
-  '/expense-splitter/script.js',
-  '/expense-splitter/manifest.json'
+  './',
+  './index.html',
+  './style.css',
+  './script.js',
+  './manifest.json'
 ];
 
 // Install: cache all assets
@@ -52,7 +52,7 @@ self.addEventListener('fetch', (event) => {
       }).catch(() => {
         // Offline fallback for navigation requests
         if (event.request.mode === 'navigate') {
-          return caches.match('/expense-splitter/index.html');
+          return caches.match('./index.html');
         }
       });
     })
