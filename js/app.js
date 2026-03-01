@@ -23,7 +23,6 @@ if ('serviceWorker' in navigator) {
 
 // ── PWA INSTALL PROMPT ──
 let deferredPrompt = null;
-let pwaPromptShown = false;
 
 // Detect if device is mobile
 function isMobile() {
@@ -33,16 +32,28 @@ function isMobile() {
 
 // Show PWA install prompt
 function showInstallPrompt() {
-  if (!deferredPrompt || pwaPromptShown || !isMobile()) return;
+  console.log('showInstallPrompt called', {
+    hasDeferredPrompt: !!deferredPrompt,
+    isMobile: isMobile(),
+    promptShownBefore: localStorage.getItem('pwaPromptShown')
+  });
+  
+  if (!deferredPrompt || !isMobile()) return;
+  
+  // Check if prompt was already dismissed
+  if (localStorage.getItem('pwaPromptShown') === 'true') {
+    console.log('Prompt already shown before, skipping');
+    return;
+  }
   
   const prompt = document.getElementById('pwa-install-prompt');
   if (!prompt) return;
   
   prompt.classList.remove('hidden');
-  pwaPromptShown = true;
   
   // Save that we showed the prompt
   localStorage.setItem('pwaPromptShown', 'true');
+  console.log('Prompt shown and saved to localStorage');
 }
 
 // Hide PWA install prompt
@@ -96,13 +107,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   
-  // Show prompt immediately on mobile if not already shown
-  if (isMobile() && !pwaPromptShown && !localStorage.getItem('pwaPromptShown')) {
-    // Small delay to ensure page is loaded
+  // Only show prompt if never shown before and on mobile
+  if (isMobile() && !localStorage.getItem('pwaPromptShown')) {
     setTimeout(showInstallPrompt, 1000);
-  } else if (isMobile() && localStorage.getItem('pwaPromptShown')) {
-    // User has previously dismissed, show download button
-    showDownloadButton();
   }
 });
 
@@ -117,18 +124,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Check if app is already installed and show prompt if needed
-window.addEventListener('load', () => {
-  // If we have a deferred prompt and it's mobile, show it immediately
-  setTimeout(() => {
-    if (deferredPrompt && isMobile() && !pwaPromptShown && !localStorage.getItem('pwaPromptShown')) {
-      showInstallPrompt();
-    } else if (deferredPrompt && isMobile() && localStorage.getItem('pwaPromptShown')) {
-      // User has previously dismissed, show download button
-      showDownloadButton();
-    }
-  }, 2000); // 2 second delay to let page load
-});
 
 // ── INITIALIZATION ──
 document.addEventListener('DOMContentLoaded', () => {
