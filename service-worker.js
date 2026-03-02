@@ -1,5 +1,5 @@
 /* SplitTab Service Worker */
-const CACHE_NAME = 'splittab-v2';
+const CACHE_NAME = 'splittab-v3';
 const ASSETS = [
   '/',
   '/index.html',
@@ -12,7 +12,15 @@ const ASSETS = [
   '/js/components.js',
   '/js/summary.js',
   '/js/utils.js',
-  '/manifest.json'
+  '/js/html2canvas.min.js',
+  '/manifest.json',
+  '/icons/favicon.ico',
+  '/icons/favicon-16x16.png',
+  '/icons/favicon-32x32.png',
+  '/icons/apple-touch-icon.png',
+  '/icons/android-chrome-192x192.png',
+  '/icons/android-chrome-512x512.png',
+  '/icons/SplitTab.png'
 ];
 
 // Install: cache all assets
